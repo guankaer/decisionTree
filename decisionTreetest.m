@@ -8,12 +8,11 @@
 clc;
 clear;
 %导入数据并归一化数据
-% [returnMat,classLabelVector] = file2matric('D:\matlab workspace\MachineLearning\kNN\datingTestSet2');
-% [returnMat,range,minVals] = autoNorm(returnMat);
-%计算香农熵
-% shannonEnt = calcShannonEnt(classLabelVector);
-%
+group = [1,1,1;1,1,1;1,0,0;0,1,0;0,1,0];  %最后一行是label
+labels = group(:,size(group,2));
 
-group = [1,1;1,1;1,0;0,1;0,1];
-labels = [1;1;0;0;0];
-ShannonEnt = calcShannonEnt(labels);
+group1 = [1,1,1;1,1,1;0,1,0;1,0,0;1,0,0];  %最后一行是label
+labels1 = group1(:,size(group1,2));
+
+ShannonEnt = calcShannonEnt(labels1);
+bestFeature = chooseBestFeature(group1);

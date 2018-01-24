@@ -8,7 +8,7 @@
 function retDataSet = splitDataSet(dataSet,axis,value)
 retDataLength = 0;
 %去掉第axis列特征中特征不等于value的数据项
-for i = 1:length(dataSet)
+for i = 1:length(dataSet)-1
     if dataSet(i,axis) == value
         retDataLength = retDataLength + 1;
         retDataSet(retDataLength,:) = dataSet(i,:); 

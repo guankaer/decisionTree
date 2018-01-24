@@ -17,12 +17,12 @@ for i = 1:size(dataSet,2)-1  %有几种特征，就循环计算几次
     for j = 1:size(feature,1) %这种特征有几种值，就分为几个组进行信息熵计算
         retDataSet = splitDataSet(dataSet,i,feature(j));
         retDataLabels = retDataSet(:,size(retDataSet,2));
-        groupEntropy = groupEntropy + (length(retDataSet)/length(dataSet)*calcShannonEnt(retDataLabels));
+        groupEntropy = groupEntropy + (length(retDataSet)/length(dataSet)*calcShannonEnt(retDataLabels))
         retDataSet = [];
         retDataLabels = [];
     end
     infoGain = baseEntropy - groupEntropy;
-    groupEntropy = 0.0;
+    groupEntropy = 0
     if infoGain > bestInfoGain
         bestInfoGain = infoGain;
         bestFeature = i;
